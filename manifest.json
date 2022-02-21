@@ -1,0 +1,36 @@
+{
+    "name": "Генератор данных для вставки",
+    "description": "Проект генерирует данные и вставляет в выбранное поле",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "permissions": [
+       "activeTab",
+       "tabs",
+       "background",
+       "contextMenus",
+       "clipboardWrite"
+      ],
+    "browser_action": {
+      "default_icon": {
+        "16": "/src/icons/icon16.png",
+        "32": "/src/icons/icon32.png",
+        "48": "/src/icons/icon48.png",
+        "128": "/src/icons/icon128.png"
+      },
+      "default_title": "Random_Paste"
+    },
+    "background": {
+      "page": "background.html"   
+    },
+    "icons": {
+        "16": "/src/icons/icon16.png",
+        "32": "/src/icons/icon32.png",
+        "48": "/src/icons/icon48.png",
+        "128": "/src/icons/icon128.png"
+    },
+    "content_scripts": [{
+      "js": ["/src/js/listening.js"],
+      "matches": ["<all_urls>", "http://*/*" , "https://*/*", "file:///"],
+      "run_at": "document_end"
+    }]
+}
